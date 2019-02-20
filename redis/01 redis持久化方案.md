@@ -11,6 +11,7 @@
 
 # 1 持久化方式及对比
 1. 有RDB（Redis DataBase）和AOF（Append Only File）两种持久化/备份 方式。两者对比如下
+
 |对比项|RDB|AOF|
 |-|-|-|
 |全称|Redis DataBase|Append Only File|
