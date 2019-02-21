@@ -1,3 +1,13 @@
+# 目录
+- [分析](#分析)
+- [被动等待其他goroutine结束：sync.WaitGroup](#被动等待其他goroutine结束：sync.WaitGroup)
+	- [sync.WaitGroup 介绍](#sync.WaitGroup 介绍)
+	- [例子：被动等待其他goroutine结束](#例子：被动等待其他goroutine结束)
+- [主动通知其他goroutine结束：sync.WaitGroup+finish channel](#主动通知其他goroutine结束：sync.WaitGroup+finish channel)
+	- [非阻塞式channel](#非阻塞式channel)
+	- [例子：主动通知其他goroutine结束](#例子：主动通知其他goroutine结束)
+- [参考资料](#参考资料)
+
 # 分析
 1. go里面，main所在的goroutine退出后，资源被系统回收，其他的goroutine也会跟着退出。此时如果没有一些同步操作，会导致其他goroutine里面的程序执行到一半，产生不可知的后果。
 2. 如果只是被动的等待其他goroutine退出，可以使用go标准库里面的`sync.WaitGroup`，见[被动等待：sync.WaitGroup](#被动等待其他goroutine结束：sync.WaitGroup).
@@ -120,3 +130,6 @@ goroutine 4 finished at 2019-02-21 11:46:24.0211091 +0800 CST m=+4.005229101
 goroutine 5 finished at 2019-02-21 11:46:25.0211663 +0800 CST m=+5.005286301
 all goroutine finished
 ```
+
+# 参考资料
+- [非阻塞式channel](https://gobyexample.com/non-blocking-channel-operations)
