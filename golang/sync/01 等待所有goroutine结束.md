@@ -72,7 +72,7 @@ goroutine 4   end at 2019-02-20 21:42:12.129849 +0800 CST m=+4.032230701
 
 # 主动通知其他goroutine结束：sync.WaitGroup+finish channel
 ## 非阻塞式channel
-关键是在select 里面加一个default分支，详见[非阻塞式channel]()
+关键是在select 里面加一个default分支，详见[非阻塞式channel](../channel/01 阻塞式channel和非阻塞式channel.md)
 
 ## 例子：主动通知其他goroutine结束
 - [源代码](wait_group/active/main.go)
