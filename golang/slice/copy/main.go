@@ -18,3 +18,9 @@ func testCopy() {
 	fmt.Println(src)
 	fmt.Println(dst)
 }
+
+/*
+结果：
+[1 2 3 4]
+[1 2]
+*/

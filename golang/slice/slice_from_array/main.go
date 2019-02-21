@@ -25,3 +25,15 @@ func sliceFromSlice() {
 	fmt.Println(sli)
 	fmt.Println(newSli)
 }
+
+/*
+结果：
+[10 20 50 40]
+[10 20]
+[10 20 50]
+
+[10 20 50 40]
+[10 20]
+[10 20 50]
+
+*/
