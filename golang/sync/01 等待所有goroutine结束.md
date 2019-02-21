@@ -1,9 +1,9 @@
 # 目录
 - [分析](#分析)
 - [被动等待其他goroutine结束：sync.WaitGroup](#被动等待其他goroutine结束syncWaitGroup)
-	- [sync.WaitGroup 介绍](#syncWaitGroup%20介绍)
+	- [sync.WaitGroup 介绍](#syncwaitgroup-介绍)
 	- [例子：被动等待其他goroutine结束](#例子被动等待其他goroutine结束)
-- [主动通知其他goroutine结束：sync.WaitGroup+finish channel](#主动通知其他goroutine结束syncWaitGroupfinish%20channel)
+- [主动通知其他goroutine结束：sync.WaitGroup+finish channel](#主动通知其他goroutine结束syncwaitgroupfinish-channel)
 	- [非阻塞式channel](#非阻塞式channel)
 	- [例子：主动通知其他goroutine结束](#例子主动通知其他goroutine结束)
 - [参考资料](#参考资料)
