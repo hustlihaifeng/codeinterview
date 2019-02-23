@@ -5,10 +5,14 @@
 - algorithm
   - list
     - [01 环形链表检测](algorithm/list/ring_check/01%20环形链表检测.md)
+  - tree
+    - [01 平衡二分查找树、B树、B+树、R树](algorithm/tree/01%20平衡二分查找树、B树、B+树、R树.md)
 - markdown
-  - [01 连接.md](markdown/01%20连接.md)
+  - [01 markdown里的连接](markdown/01%20连接.md)
 - redis
   - [01 redis持久化方案](redis/01%20redis持久化方案.md)
+- mysql
+  - [01 InnoDB和MyISAM](mysql/01%20InnoDB和MyISAM.md)
 - golang
   - sync
     - [01 等待所有goroutine结束](golang/sync/01%20等待所有goroutine结束.md)
