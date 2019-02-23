@@ -7,6 +7,8 @@
     - [01 环形链表检测](algorithm/list/ring_check/01%20环形链表检测.md)
   - tree
     - [01 平衡二分查找树、B树、B+树、R树](algorithm/tree/01%20平衡二分查找树、B树、B+树、R树.md)
+    - heap
+      - [01 堆](algorithm/tree/heap/01%20堆.md)
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis
