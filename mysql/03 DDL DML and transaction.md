@@ -27,7 +27,7 @@
 # delete truncate drop的区别
 ## 1. 删除哪些东西 
 - truncate 和 delete 只删除数据不删除表的结构(定义);
--  drop 将删除表数据和表定义，被依赖的约束(constrain)、触发器(trigger)、索引(index),依赖于该表的存储过程/函数将保留,但是变为 invalid 状态。
+-  drop 将删除表数据和表定义，也会删除被依赖的约束(constrain)、触发器(trigger)、索引(index)。而依赖于该表的存储过程/函数将保留,但是变为 invalid 状态。
 ## 2. 是否能回滚
 - delete 语句是数据库操作语言(dml)，这个操作会放到 rollback segement 中，事务提交之后才生效；
 - drop、truncate都是**DDL语句(数据定义语言),执行前后会自动commit。不能rollback**。
