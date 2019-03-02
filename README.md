@@ -15,6 +15,7 @@
   - [01 redis持久化方案](redis/01%20redis持久化方案.md)
 - mysql
   - [01 InnoDB和MyISAM](mysql/01%20InnoDB和MyISAM.md)
+  - [02 MySQL大表优化](mysql/02%20MySQL大表优化.md)
   - [03 DDL DML 事物和delete truncate drop](mysql/03%20DDL%20DML%20and%20transaction.md)
 - golang
   - sync
