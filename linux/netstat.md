@@ -19,7 +19,7 @@ netstat可用来查看socket套接字情况，包括TCP、UDP、unix domain sock
 	- `-e, --extend`: 打印
 	- 默认不打印
 # 端口状态详解
-![](state of tcp.png)
+![](state%20of%20tcp.png)
 
 - [netstat命令中的TCP SOCKET 状态](https://blog.csdn.net/konga/article/details/8265146)
 - [TCP/IP详解--TCP连接中TIME_WAIT状态过多](https://blog.csdn.net/yusiguyuan/article/details/21445883)
