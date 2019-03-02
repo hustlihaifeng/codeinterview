@@ -15,6 +15,7 @@
   - [01 redis持久化方案](redis/01%20redis持久化方案.md)
 - mysql
   - [01 InnoDB和MyISAM](mysql/01%20InnoDB和MyISAM.md)
+  - [03 DDL DML 事物和delete truncate drop](mysql/03%20DDL%20DML%20and%20transaction.md)
 - golang
   - sync
     - [01 等待所有goroutine结束](golang/sync/01%20等待所有goroutine结束.md)
