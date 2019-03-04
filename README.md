@@ -26,3 +26,4 @@
     - [01 切片和数组](golang/slice/01%20切片和数组.md)
 - linux
   - [linux进程间通信](linux/communication%20between%20processes%20in%20linux.md)
+  - [netstat](linux/netstat.md)
