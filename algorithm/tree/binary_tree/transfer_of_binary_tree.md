@@ -76,7 +76,7 @@ for 栈非空 {
 	}
 }
 ```
-2. 代码见[transfer.go](transfer.go)里的`TransferLeftMiddleRight`，`TransferLeftMiddleRightBad`，测试代码见`test/main.go`
+2. 代码见[transfer.go](transfer.go)里的`TransferLeftMiddleRight`，`TransferLeftMiddleRightBad`，测试代码见[test/main.go](test/main.go)
 ## 二叉树后序遍历
 1. 伪代码
 ```go
@@ -91,7 +91,7 @@ for 栈非空 {
 	}
 }
 ```
-2. 代码见[transfer.go](transfer.go)里的`TransferLeftRightMiddle`，`TransferLeftRightMiddleBad`，测试代码见`test/main.go`
+2. 代码见[transfer.go](transfer.go)里的`TransferLeftRightMiddle`，`TransferLeftRightMiddleBad`，测试代码见[test/main.go](test/main.go)
 ## 二叉树先序遍历
 1. 伪代码
 ```go
@@ -101,7 +101,7 @@ for 栈非空 {
     非空左子树压栈
 }
 ```
-2. 代码见[transfer.go](transfer.go)里的`TransferMiddleLeftRight`，`TransferMiddleLeftRightBad`，测试代码见`test/main.go`
+2. 代码见[transfer.go](transfer.go)里的`TransferMiddleLeftRight`，`TransferMiddleLeftRightBad`，测试代码见[test/main.go](test/main.go)
 # 二叉树广度优先遍历
 1. 伪代码
 ```go
@@ -115,4 +115,4 @@ for 队列非空 {
     }
 }
 ```
-2. 代码见[transfer.go](transfer.go)里的`TransferWidthFirst`，测试代码见`test/main.go`
+2. 代码见[transfer.go](transfer.go)里的`TransferWidthFirst`，测试代码见[test/main.go](test/main.go)
