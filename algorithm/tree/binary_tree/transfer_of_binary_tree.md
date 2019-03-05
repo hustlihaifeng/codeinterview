@@ -26,39 +26,39 @@
 stack和队列都是线性数据结构，都可以用go的标准容器中的list来实现：
 ## stack
 ```go
-	func StackPush(lst *list.List, elem int)error{
-		if StackPushInputInvalid(lst, elem){
-             return errors.New("input invalid")
-		}
-         
-         lst.PushBack(elem)
-         return nil
+func StackPush(lst *list.List, elem int)error{
+	if StackPushInputInvalid(lst, elem){
+		return errors.New("input invalid")
 	}
-	func StackPop(lst *list.List) int,error {
-         if StackPopInputInvalid(lst) {
-             return 0,errors.New("input invalid")
-         }
-         
-         return lst.Remove(lst.Back()).(int),nil
+	
+	lst.PushBack(elem)
+	return nil
+}
+func StackPop(lst *list.List) int,error {
+	if StackPopInputInvalid(lst) {
+		return 0,errors.New("input invalid")
 	}
+	
+	return lst.Remove(lst.Back()).(int),nil
+}
 ```
 ## FIFO queue
 ```go
-	func QueuePush(lst *list.List, elem int)error{
-		if QueuePushInputInvalid(lst, elem){
-             return errors.New("input invalid")
-		}
-         
-         lst.PushBack(elem)
-         return nil
+func QueuePush(lst *list.List, elem int)error{
+	if QueuePushInputInvalid(lst, elem){
+		return errors.New("input invalid")
 	}
-	func QueuePop(lst *list.List) int,error {
-         if QueuePopInputInvalid(lst) {
-             return 0,errors.New("input invalid")
-         }
-         
-         return lst.Remove(lst.Front()).(int),nil
+	
+	lst.PushBack(elem)
+	return nil
+}
+func QueuePop(lst *list.List) int,error {
+	if QueuePopInputInvalid(lst) {
+		return 0,errors.New("input invalid")
 	}
+	
+	return lst.Remove(lst.Front()).(int),nil
+}
 ```
 # 二叉树深度优先遍历
 深度优先搜索包括先序、中序、后续遍历。先序实现最简单，中序符合我们一般的认知。
@@ -66,9 +66,9 @@ stack和队列都是线性数据结构，都可以用go的标准容器中的list
 1. 伪代码
 ```go
 for 栈非空 {
-    pop得到当前节点
-    if 左子树为空或者已经被访问 {
-        访问当前节点
+	pop得到当前节点
+	if 左子树为空或者已经被访问 {
+		访问当前节点
 		将非空右子树压栈
 	}else{
 		当前节点压栈
@@ -83,11 +83,11 @@ for 栈非空 {
 for 栈非空 {
 	pop 得到当前节点
 	if 左子树为空或者被访问 && 右子树为空或者被访问 {
-        访问当前节点
+		访问当前节点
 	}else{
-        当前节点压栈
-        非空右子树压栈
-        非空左子树压栈
+		当前节点压栈
+		非空右子树压栈
+		非空左子树压栈
 	}
 }
 ```
@@ -96,9 +96,9 @@ for 栈非空 {
 1. 伪代码
 ```go
 for 栈非空 {
-    访问当前节点
-    非空右子树压栈
-    非空左子树压栈
+	访问当前节点
+	非空右子树压栈
+	非空左子树压栈
 }
 ```
 2. 代码见[transfer.go](transfer.go)里的`TransferMiddleLeftRight`，`TransferMiddleLeftRightBad`，测试代码见[test/main.go](test/main.go)
@@ -106,13 +106,13 @@ for 栈非空 {
 1. 伪代码
 ```go
 for 队列非空 {
-    pop得到最老节点
-    访问当前节点
-    for 每一个子节点{
-        if 节点非空且没有被访问过 {
-            加入队列尾部
-    	}
-    }
+	pop得到最老节点
+	访问当前节点
+	for 每一个子节点{
+		if 节点非空且没有被访问过 {
+			加入队列尾部
+		}
+	}
 }
 ```
 2. 代码见[transfer.go](transfer.go)里的`TransferWidthFirst`，测试代码见[test/main.go](test/main.go)
