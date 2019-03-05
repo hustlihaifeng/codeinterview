@@ -9,6 +9,8 @@
     - [01 平衡二分查找树、B树、B+树、R树](algorithm/tree/01%20平衡二分查找树、B树、B+树、R树.md)
     - heap
       - [01 堆](algorithm/tree/heap/01%20堆.md)
+    - binary_tree
+      - [二叉树的深度（先序 中序 后序）和广度优先遍历](algorithm/tree/binary_tree/transfer_of_binary_tree.md)
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis
