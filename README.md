@@ -11,6 +11,9 @@
       - [01 堆](algorithm/tree/heap/01%20堆.md)
     - binary_tree
       - [二叉树的深度（先序 中序 后序）和广度优先遍历](algorithm/tree/binary_tree/transfer_of_binary_tree.md)
+  - map
+    - leetcode
+      - [128 最长连续子集合的长度](algorithm/map/leetcode/128longest_consecutive_sequence/128longest_consecutive_sequence.md)
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis

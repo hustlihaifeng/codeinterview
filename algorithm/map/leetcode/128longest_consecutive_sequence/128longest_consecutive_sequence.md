@@ -8,21 +8,21 @@ hash map读取都是`O(1)`的操作，那么可以把数组中元素都唯一的
 # 伪代码
 ```go
 for 数组里面的每一个元素{
-    覆盖式的加入map，值设为true
+    覆盖式的加入 map，值设为 true
 }
 
 最大计数设置为0
 for map中的每一对kv元祖 {
     计数设为0
 
-    计数加一并从map中删除k
+    计数加一并从 map中删除k
     khigh,klow设为k
     for ++khigh在map中存在 {
         计数加一并从map中删除khigh
     }
 
     for --klow在map中存在 {
-        计数加一并从map中删除klow
+        计数加一并从 map中删除klow
     }
 
     if 计数大于最大计数{
