@@ -36,5 +36,6 @@
   - [netstat](linux/netstat.md)
   - [tcp粘包问题](linux/tcp粘包问题.md)
   - [tcp发送速度控制](linux/speed_control_of_tcp.md)
+  - [linux常见资源监控命令](linux/resource%20monitor%20of%20linux.md)
 - 编码技巧
   - [how to code](skills/how_to_code.md)
