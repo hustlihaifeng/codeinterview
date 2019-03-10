@@ -31,7 +31,14 @@ netstat可用来查看socket套接字情况，包括TCP、UDP、unix domain sock
  如果没有`TIME_WAIT`状态，那么主动关闭端在在收到对端发送的`FIN`后，会发送一个`ACK`，然后进入`CLOSED`状态。此时如果这个`ACK`丢失，那么对端会重发一个`FIN`，此时`CLOSED`状态的socket会返回一个`RST`, **这会被对方认为有错误发生（而事实上，这是正常的关闭连接过程，并非异常）**. 所以为了实现TCP全双工连接的终止可靠性需要`TIME_WAIT`状态。另外如果在这个处于`CLOSED`状态的socket马上被重用，那么有可能收到原来对端在网络中延时到达的包；由于TCP连接由四元组唯一标识，TCP协议栈是无法区分前后两条TCP连接的不同的连接，这样**会引起数据错乱进而导致各种无法预知的诡异现象**，所以为使旧的数据包在网络因过期而消失，需要`TIME_WAIT`状态。
 
 ### TIME_WAIT状态过多会发生什么
-`TIME_WAIT`过多说明有很多连接处于即将进入`CLOSED`状态。由于新建对外连接会临时分配端口号，默认`TIME_WAIT`状态的链接不能被重用，所以此时有可能发生**主动发起对外连接时端口不够用的情况**。
+1. `TIME_WAIT`过多说明有很多连接处于即将进入`CLOSED`状态。由于新建对外连接会临时分配端口号，默认`TIME_WAIT`状态的链接不能被重用，所以此时有可能发生**主动发起对外连接时端口不够用的情况**。
+- `sudo sysctl -a | grep ipv4.ip_local_port_range`: Linux系统端口范围, `/etc/sysctl.conf`中修改
+2. tcp连接数量还受限于linux系统能打开的最大文件数量，见[Linux 内核优化-调大TCP最大连接数](https://blog.csdn.net/Just_shunjian/article/details/78288229)、[Linux下高并发socket最大连接数所受的各种限制](https://blog.csdn.net/guowake/article/details/6615728)
+- `ulimit -n`:用户最大打开的文件数量，`/etc/security/limits.conf`中修改
+- `sudo sysctl -a|grep file-max`:Linux系统中所有用户同时打开文件数上限，`/etc/sysctl.conf`中修改
+3. tcp连接数量还受限于linux系统最大追踪TCP连接数量
+- `sysctl -a | grep ipv4.ip_conntrack_max`:Linux系统最大追踪TCP连接数量,`/etc/sysctl.conf`中修改
+
 ### 什么时候TIME_WAIT状态会很多
 默认TCP配置下，短时间进行了大量的主动关闭动作。
 ### 如何优化`TIME_WAIT`过多的情况
@@ -51,3 +58,5 @@ netstat可用来查看socket套接字情况，包括TCP、UDP、unix domain sock
 - [服务器tcp连接timewait过多优化及详细分析](https://blog.csdn.net/cheng_fangang/article/details/49778161)  讲了如何处理`TIME_WAIT`过多，和为什么nat情况下这样处理会有问题。和回滚。
 - [time_wait状态的产生原因，危害，如何避免？](http://www.voidcn.com/article/p-aogsoptp-hw.html) 讲了为什么要有`TIME_WAIT`状态，过多有什么问题。
 - [netstat命令中的TCP SOCKET 状态](https://blog.csdn.net/konga/article/details/8265146) TCP状态变化图
+- [Linux 内核优化-调大TCP最大连接数](https://blog.csdn.net/Just_shunjian/article/details/78288229)
+- [Linux下高并发socket最大连接数所受的各种限制](https://blog.csdn.net/guowake/article/details/6615728)
