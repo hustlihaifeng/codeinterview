@@ -35,5 +35,6 @@
   - [linux进程间通信](linux/communication%20between%20processes%20in%20linux.md)
   - [netstat](linux/netstat.md)
   - [tcp粘包问题](linux/tcp粘包问题.md)
+  - [tcp发送速度控制](linux/speed_control_of_tcp.md)
 - 编码技巧
   - [how to code](skills/how_to_code.md)
