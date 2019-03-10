@@ -119,7 +119,7 @@ func detectCycle(head *ListNode) *ListNode {
 	if p2 == nil {
 		return nil
 	}
-
+	// 如果仅仅检测是否有环，那么到这里就可以了
 	p1 = head
 	for p2 != p1 {
 		p2 = p2.Next
