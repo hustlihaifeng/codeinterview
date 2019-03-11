@@ -4,6 +4,8 @@
 - [合并](#合并)
 - [两数相加](#两数相加)
 - [排序](#排序)
+- [相交点检测](#相交点检测)
+- [多个链表合并](#多个链表合并)
 
 # 翻转
 1. 关键点：将`newHead`初始化为nil，新链表从前往后涨。
@@ -51,3 +53,22 @@ for pa!=pb {
 return pa
 ```
 3. 代码见 [intersection_point/main.go](intersection_point/main.go)
+
+# 多个链表合并
+1. 将链表数组二分，分到两个时进行合并,每个需要合并log(k)次（k指链表个数），所以是O（nlog(k))的复杂度。 
+2. 伪代码：
+```go
+if low==high{
+    return sli[low]
+}
+if low+1==high{
+    return merge2(sli[low],sli[high])
+}
+mid := (low+high)/2
+lowSli := mergeKLists(low,middle-1)
+highSli := mergeKLists(middle,high)
+return merge2(lowSli,highSli)
+```
+
+3. 代码详见：[mergeklists/main.go](mergeklists/main.go)
+
