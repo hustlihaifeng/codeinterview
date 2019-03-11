@@ -37,3 +37,17 @@
 
 ## 排序源码
 见[sortlist/main.go](sortlist/main.go)
+
+# 相交点检测
+1. 方法1： 把headA的尾指针，指向headB。那么如果有交点，两者成环，没有交点两者不成环。实现上，先把两个链表连起来，然后调用环点检测函数。空间复杂度O(1),时间复杂度6m+5n=k+2k+k+k+m=5k+m=5(m+n)+m=6m+5n
+2. 方法2：两个指针分别从a、b链头开始遍历，遇到nil后就指向另一条链。那么最后，两个指针走的长度相等。第一次相遇时，要么在交叉点，要么在nil点。nil点说明非相交，交叉点说明相交。时间复杂度2m+2n，空间复杂度O(1)。伪代码：
+```go
+pa=headA
+pb=headB
+for pa!=pb {
+    pa = (pa==nil)?headB:pa.Next
+    pb = (pb==nil)?headA:pb.Next
+}
+return pa
+```
+3. 代码见 [intersection_point/main.go](intersection_point/main.go)
