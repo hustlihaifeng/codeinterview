@@ -16,6 +16,9 @@
   - map
     - leetcode
       - [128 最长连续子集合的长度](algorithm/map/leetcode/128longest_consecutive_sequence/128longest_consecutive_sequence.md)
+  - algorithm
+    - 动态规划和贪心
+      - [最大正方形面积问题](algorithm/dp_greedy/maximalsquare/maximalsquare.md)
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis
