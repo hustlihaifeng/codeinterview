@@ -156,6 +156,99 @@ sudo docker rename quizzical_heisenberg docker_repo
 docker ps -a |grep Exited|awk '{print $1}'|xargs sudo /usr/bin/docker rm
 ```
 
+# docker远端仓库可用api
+
+- [https://www.jianshu.com/p/6a7b80122602](https://www.jianshu.com/p/6a7b80122602)
+- **[https://docs.docker.com/registry/spec/api/#detail](https://docs.docker.com/registry/spec/api/#detail)**
+- [Docker registry V2 推送镜像、拉取镜像、搜索镜像、删除镜像和垃圾回收](https://blog.csdn.net/nklinsirui/article/details/80705306#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3)
+
+## 查询
+
+```shell
+curl -XGET http://172.17.0.2:5000/v2/ # 如果实现了v2 api，会返回一个{}，相当于ping
+curl -XGET http://172.17.0.2:5000/v2/_catalog # 获取镜像列表
+curl -XGET http://172.17.0.2:5000/v2/hello-world/tags/list # 获取某个镜像有多少个tag：{"name":"hello-world","tags":["tag1","latest"]}
+curl -XGET http://172.17.0.2:5000/v2/hello-world/manifests/tag1 # 获取某个镜像版本的详细信息，总共有：get put delete head四种请求
+
+curl -XGET http://172.17.0.2:5000/v2/_catalog?n=2 # 获取前两个镜像，每次获取内容相同，不能分页
+curl -XGET http://172.17.0.2:5000/v2/hello-world/tags/list?n=2 # 获取某个镜像的前两个版本，每次获取的内容相同，好像不能实现分页
+curl -XGET "http://172.17.0.2:5000/v2/hello-world/tags/list?n=1&last=1" # 分页获取，文档说这样可以，但是测试时好像不行
+```
+
+manifests的输出类似于：
+
+```json
+{
+	"schemaVersion": 1,
+	"name": "hello-world",
+	"tag": "tag1",
+	"architecture": "amd64",
+	"fsLayers": [{
+			"blobSum": "sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4"
+		},
+		{
+			"blobSum": "sha256:1b930d010525941c1d56ec53b97bd057a67ae1865eebf042686d2a2d18271ced"
+		}
+	],
+	"history": [{
+			"v1Compatibility": "{\"architecture\":\"amd64\",\"config\":{\"Hostname\":\"\",\"Domainname\":\"\",\"User\":\"\",\"AttachStdin\":false,\"AttachStdout\":false,\"AttachStderr\":false,\"Tty\":false,\"OpenStdin\":false,\"StdinOnce\":false,\"Env\":[\"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"],\"Cmd\":[\"/hello\"],\"ArgsEscaped\":true,\"Image\":\"sha256:a6d1aaad8ca65655449a26146699fe9d61240071f6992975be7e720f1cd42440\",\"Volumes\":null,\"WorkingDir\":\"\",\"Entrypoint\":null,\"OnBuild\":null,\"Labels\":null},\"container\":\"8e2caa5a514bb6d8b4f2a2553e9067498d261a0fd83a96aeaaf303943dff6ff9\",\"container_config\":{\"Hostname\":\"8e2caa5a514b\",\"Domainname\":\"\",\"User\":\"\",\"AttachStdin\":false,\"AttachStdout\":false,\"AttachStderr\":false,\"Tty\":false,\"OpenStdin\":false,\"StdinOnce\":false,\"Env\":[\"PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\"],\"Cmd\":[\"/bin/sh\",\"-c\",\"#(nop) \",\"CMD [\\\"/hello\\\"]\"],\"ArgsEscaped\":true,\"Image\":\"sha256:a6d1aaad8ca65655449a26146699fe9d61240071f6992975be7e720f1cd42440\",\"Volumes\":null,\"WorkingDir\":\"\",\"Entrypoint\":null,\"OnBuild\":null,\"Labels\":{}},\"created\":\"2019-01-01T01:29:27.650294696Z\",\"docker_version\":\"18.06.1-ce\",\"id\":\"9f5834b25059239faef06a9ba681db7b7c572fc0d87d2b140b10e90e50902b53\",\"os\":\"linux\",\"parent\":\"65b27d3bd74d2cf4ea3aa9e250be6c632f0a347e8abd5485345c55fa6eed0258\",\"throwaway\":true}"
+		},
+		{
+			"v1Compatibility": "{\"id\":\"65b27d3bd74d2cf4ea3aa9e250be6c632f0a347e8abd5485345c55fa6eed0258\",\"created\":\"2019-01-01T01:29:27.416803627Z\",\"container_config\":{\"Cmd\":[\"/bin/sh -c #(nop) COPY file:f77490f70ce51da25bd21bfc30cb5e1a24b2b65eb37d4af0c327ddc24f0986a6 in / \"]}}"
+		}
+	],
+	"signatures": [{
+		"header": {
+			"jwk": {
+				"crv": "P-256",
+				"kid": "USX5:66ZV:IHQM:IILY:LA7D:BKKO:TDDZ:QWP6:6QRC:P6QO:37ZL:FZRJ",
+				"kty": "EC",
+				"x": "guUQpSApBOzRLJMl7XGRpRKswkDn9AsUd0t1fylckAs",
+				"y": "qxZl09dYVa2Fc0nsyUnRNv5b5EJUgRvl78OiOp0pTnE"
+			},
+			"alg": "ES256"
+		},
+		"signature": "TQgUh1P2pyf1MZXTm43XY4whdW9lgwFAZS9QWnVdO1307Y8QJVEepc1DNpe2tpYKITWEUIOC-zuOgQ9j6Y6rPg",
+		"protected": "eyJmb3JtYXRMZW5ndGgiOjIxMzUsImZvcm1hdFRhaWwiOiJDbjAiLCJ0aW1lIjoiMjAxOS0wMy0yNlQwMzowNjoxMVoifQ"
+	}]
+}
+```
+
+
+
+## 增加
+
+- [<https://docs.docker.com/registry/spec/api/#pushing-an-image>](https://docs.docker.com/registry/spec/api/#pushing-an-image)
+
+```shell
+POST /v2/<name>/blobs/uploads/
+HEAD /v2/<name>/blobs/<digest>
+docker push 172.17.0.2:5000/hello-world:tag1
+```
+
+
+
+## 删除
+
+- [<https://docs.docker.com/registry/spec/api/#deleting-an-image>](https://docs.docker.com/registry/spec/api/#deleting-an-image)
+
+```shell
+DELETE /v2/<name>/manifests/<reference>
+```
+
+
+
+## 获取
+
+- [<https://docs.docker.com/registry/spec/api/#pulling-an-image>](https://docs.docker.com/registry/spec/api/#pulling-an-image)
+
+```shell
+GET /v2/<name>/manifests/<reference>
+HEAD /v2/<name>/manifests/<reference> # 检查是否存在
+GET /v2/<name>/blobs/<digest>
+docker pull 172.17.0.2:5000/busybox
+```
+
 
 
 # 参考资料
