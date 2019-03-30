@@ -19,6 +19,7 @@
   - algorithm
     - 动态规划和贪心
       - [最大正方形面积问题](algorithm/dp_greedy/maximalsquare/maximalsquare.md)
+      - [最大连续子数组之和](algorithm/dp_greedy/\maxSubArray/maxSubArray.md)
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis
