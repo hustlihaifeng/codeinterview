@@ -1,5 +1,9 @@
 package main
 
+func main() {
+
+}
+
 /*
 sum、maxSum设置为第一个元素，起点终点设置为0
 for 数组里面从第2个元素开始的没一个元素 {
