@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	localImageSummarySli, err := DockerImageList("v1")
+	localImageSummarySli, err := DockerImageList("v1.12")
 	if err != nil {
 		panic(err)
 	}
