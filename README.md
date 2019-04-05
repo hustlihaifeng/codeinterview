@@ -21,6 +21,7 @@
       - [最大正方形面积问题](algorithm/dp_greedy/maximalsquare/maximalsquare.md)
       - [最大连续子数组之和](algorithm/dp_greedy/maxSubArray/maxSubArray.md)
       - [三角形型二维数组的最短路径和](algorithm/dp_greedy/minimumTotal/minimumTotal.md)
+      - [最长递增数组长度问题](algorithm/dp_greedy/lengthOfLIS/lengthOfLIS.md)
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis
