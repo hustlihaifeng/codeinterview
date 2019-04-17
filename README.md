@@ -38,6 +38,9 @@
     - [01 阻塞式channel和非阻塞式channel](golang/channel/01%20阻塞式channel和非阻塞式channel.md)
   - slice
     - [01 切片和数组](golang/slice/01%20切片和数组.md)
+  - io
+    - bufio
+      - [ReadLine长行截断问题](golang\io\bufio\ReadLine.md)
 - linux
   - [linux进程间通信](linux/communication%20between%20processes%20in%20linux.md)
   - [netstat](linux/netstat.md)
