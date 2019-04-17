@@ -49,6 +49,6 @@
   - [linux常见资源监控命令](linux/resource%20monitor%20of%20linux.md)
 - docker
 
-  - [docker笔记](docker/docker/docker%20note.md)
+  - [docker笔记](docker/docker%20note.md)
 - 编码技巧
   - [how to code](skills/how_to_code.md)
