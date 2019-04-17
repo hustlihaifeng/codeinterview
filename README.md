@@ -41,6 +41,8 @@
   - io
     - bufio
       - [ReadLine长行截断问题](golang/io/bufio/ReadLine.md)
+  - websocket
+    - [websocket注意事项和官方样例](golang/websocket/websocket.md)
 - linux
   - [linux进程间通信](linux/communication%20between%20processes%20in%20linux.md)
   - [netstat](linux/netstat.md)
