@@ -23,7 +23,8 @@
     - [最长递增数组长度问题](algorithm/dp_greedy/lengthOfLIS/lengthOfLIS.md)
     - [俄罗斯套娃问题](algorithm/dp_greedy/maxEnvelopes/maxEnvelopes.md)
   - 数据结构
-  	- [最小栈](algorithm/data_structure/MinStack/MinStack.md) 
+    - [最小栈](algorithm/data_structure/MinStack/MinStack.md) 
+    - [全O(1)的LRUCache](algorithm/data_structure/LRUCache/LRUCache.md)
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis
