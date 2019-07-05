@@ -60,3 +60,8 @@
   - [docker笔记](docker/docker%20note.md)
 - 编码技巧
   - [how to code](skills/how_to_code.md)
+- tools
+  - [vim](tools/vim.md)
+  - [tmux](tools/tmux.md)
+- network
+  - [SO_REUSEADDR和SO_REUSEPORT](network/SO_REUSEADDR_AND_SO_REUSEPORT.md)
