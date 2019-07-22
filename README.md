@@ -59,6 +59,8 @@
   - [linux常见资源监控命令](linux/resource%20monitor%20of%20linux.md)
   - [给virtualbox虚拟机替换大硬盘](linux/increase_disk_size.md)
   - [linux常见设置](linux/common_setting_in_linux.md)
+  - [一次ftp出错](linux/setup_vsftp_server_in_centos.md)
+  - [address already in use](linux/address_already_in_use.md)
 - docker
 
   - [docker笔记](docker/docker%20note.md)
