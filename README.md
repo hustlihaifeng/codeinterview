@@ -36,6 +36,9 @@
   - [01 InnoDB和MyISAM](mysql/01%20InnoDB和MyISAM.md)
   - [02 MySQL大表优化](mysql/02%20MySQL大表优化.md)
   - [03 DDL DML 事物和delete truncate drop](mysql/03%20DDL%20DML%20and%20transaction.md)
+- oracle
+  - [01 oracle环境搭建与常见问题](oracle/oracle_basic.md)
+  - [02 beego orm从mysql切换到oracle](oracle/migrate_from_beego_orm_of_mysql_to_oracle.md)
 - golang
   - sync
     - [01 等待所有goroutine结束](golang/sync/01%20等待所有goroutine结束.md)
