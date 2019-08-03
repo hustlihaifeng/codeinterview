@@ -61,6 +61,7 @@
   - [linux常见设置](linux/common_setting_in_linux.md)
   - [一次ftp出错](linux/setup_vsftp_server_in_centos.md)
   - [address already in use](linux/address_already_in_use.md)
+  - [expect](linux/expect.md)
 - docker
 
   - [docker笔记](docker/docker%20note.md)
