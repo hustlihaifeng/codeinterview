@@ -116,7 +116,7 @@ func (u *User) TableUnique() [][]string {
    ```go
    type User struct {
        ...
-       Status int `orm:"default(1)" description:(这是状态字段)`
+       Status int `orm:"default(1);description(这是状态字段（注意: 注释中禁止包含引号）)" `
        ...
    }
    ```

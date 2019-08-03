@@ -324,6 +324,10 @@ docker pull 127.0.0.1:5000/busybox
    - 临时解决方案是，删除镜像后不进行垃圾回收。然后提供一个垃圾回收的功能，与私有仓库重启相结合。
    - 见：[零时解决办法](https://github.com/docker/distribution/issues/2270#issuecomment-354433592), 也就是垃圾回收后必须重启，这样才不会出问题。
 
+# 关于文件夹映射
+
+1. 要把未来会变得部分给映射出来：配置文件、程序介质（修复bug或添加功能）
+
 # 参考资料
 
 - [centos7 Docker私有仓库搭建及删除镜像](https://www.cnblogs.com/Tempted/p/7768694.html)
