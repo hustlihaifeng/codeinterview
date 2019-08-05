@@ -15,7 +15,7 @@
    1. `rtp`包在应用层创建，被传到传输层去传输。`RTP`包头格式如下：
    2. rtp协议头格式如下：
 
-   ![](D:\code\codeinterview\src\network\RTP_header.png)
+   ![](./RTP_header.png)
 
    - 最小12 bytes，After the header, optional header extensions may be present.
    - **Version**: (2 bits) Indicates the version of the protocol. Current version is 2
