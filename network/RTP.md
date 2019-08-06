@@ -20,7 +20,32 @@
    - 最小12 bytes，After the header, optional header extensions may be present.
    - **Version**: (2 bits) Indicates the version of the protocol. Current version is 2
    - **P (Padding)**: (1 bit)表名RTP包结尾是否有填充字节。如果有的话，最后一个字节表示填充字节长度（包括自身)
+   - **X (Extension)**: (1 bit) Indicates presence of an *extension header* between the header and payload data.
+   - **PT (Payload type)**: (7 bits) 负载类型，根据应用不同，可以动态加载。
+   - **Sequence number**: (16 bits)发送方每发送一个RTP数据包，sequence number加一。接收方使用sequence number来检测包丢失和乱序到达。初始值应该随机化，以加强安全性。
+   - **Timestamp**: (32 bits) Used by the receiver to play back the received samples at appropriate time and interval.
+   - **Header extension**: (optional, presence indicated by *Extension* field) 最开始是一个profile-specific identifier (16 bits)和a length specifier (16 bits)。length specifier表示extension hender的长度，32bit为单位，包含第一个32比特。
 
    # 协议工作方式
 
-   1. RTP 使用偶数端口号接收发送数据，相应的RTCP则使用相邻的下一位奇数端口号
+   1. RTP 使用偶数端口号接收发送数据，相应的RTCP则使用相邻的下一位奇数端口号。
+
+# 附录
+
+## 标准文档
+
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [1889](https://tools.ietf.org/html/rfc1889), *RTP: A Transport Protocol for Real-Time Applications*, Obsoleted by [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [3550](https://tools.ietf.org/html/rfc3550).
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [3550](https://tools.ietf.org/html/rfc3550), Standard 64, *RTP: A Transport Protocol for Real-Time Applications*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [3551](https://tools.ietf.org/html/rfc3551), Standard 65, *RTP Profile for Audio and Video Conferences with Minimal Control*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [3190](https://tools.ietf.org/html/rfc3190), *RTP Payload Format for 12-bit DAT Audio and 20- and 24-bit Linear Sampled Audio*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [6184](https://tools.ietf.org/html/rfc6184), *RTP Payload Format for H.264 Video*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [4103](https://tools.ietf.org/html/rfc4103), *RTP Payload Format for Text Conversation*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [3640](https://tools.ietf.org/html/rfc3640), *RTP Payload Format for Transport of MPEG-4 Elementary Streams*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [6416](https://tools.ietf.org/html/rfc6416), *RTP Payload Format for MPEG-4 Audio/Visual Streams*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [2250](https://tools.ietf.org/html/rfc2250), *RTP Payload Format for MPEG1/MPEG2 Video*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [4175](https://tools.ietf.org/html/rfc4175), *RTP Payload Format for Uncompressed Video*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [6295](https://tools.ietf.org/html/rfc6295), *RTP Payload Format for MIDI*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [4696](https://tools.ietf.org/html/rfc4696), *An Implementation Guide for RTP MIDI*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [7587](https://tools.ietf.org/html/rfc7587), *RTP Payload Format for the Opus Speech and Audio Codec*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [7656](https://tools.ietf.org/html/rfc7656), *A Taxonomy of Semantics and Mechanisms for Real-Time Transport Protocol (RTP) Sources*
+- [RFC](https://en.wikipedia.org/wiki/Request_for_Comments_(identifier)) [7798](https://tools.ietf.org/html/rfc7798), *RTP Payload Format for High Efficiency Video Coding (HEVC)*
