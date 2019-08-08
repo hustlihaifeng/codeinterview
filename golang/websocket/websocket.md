@@ -14,6 +14,7 @@
 ## 1.3 测试
 
 1. <http://coolaf.com/tool/chattest> 上面ws://xxx.xxx.xxx.xxx:xx/v1/ws/test/1进行测试。
+2. chrome有个websocket测试插件：<https://chrome.google.com/webstore/detail/smart-websocket-client/omalebghpgejjiaoknljcfmglgbpocdp?utm_source=chrome-app-launcher-info-dialog>
 
 ## 1.4 问题
 
