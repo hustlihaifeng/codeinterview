@@ -1,4 +1,4 @@
-TODO：RTP工作原理
+TODO：RTCP报文格式
 
 # 1. RTP概述
 
@@ -21,6 +21,8 @@ TODO：RTP工作原理
 
 # 3. 报文格式
 
+## 3.1 rtp报文格式
+
 1. `rtp`包在应用层创建，被传到传输层去传输。`RTP`包头格式如下：
 2. rtp协议头格式如下：
 
@@ -28,12 +30,22 @@ TODO：RTP工作原理
 
 - 最小12 bytes，After the header, optional header extensions may be present.
 - **Version**: (2 bits) Indicates the version of the protocol. Current version is 2
-- **P (Padding)**: (1 bit)表名RTP包结尾是否有填充字节。如果有的话，最后一个字节表示填充字节长度（包括自身)
+- **P (Padding)**: (1 bit)表名RTP包结尾是否有填充字节。如果有的话，最后一个字节表示填充字节长度（包括自身)(填充字节可以设置加密算法)
 - **X (Extension)**: (1 bit) Indicates presence of an *extension header* between the header and payload data.
+- CC（CSRC Count）：本头部包含的CSRC源的数目（TODO：）
+- M（Marker）：有具体协议制定，用来允许标记重要事件（TODO：）
 - **PT (Payload type)**: (7 bits) 负载类型，根据应用不同，可以动态加载。
 - **Sequence number**: (16 bits)发送方每发送一个RTP数据包，sequence number加一。接收方使用sequence number来检测包丢失和乱序到达。初始值应该随机化，以加强安全性。
-- **Timestamp**: (32 bits) Used by the receiver to play back the received samples at appropriate time and interval.
+- **Timestamp**: (32 bits) 反应RTP包中第一个比特的抽样瞬间，抽样精度必须满足同步需求，以便进行同步和抖动计算。
+- SSRC：同步源标识。用于识别RTP报文发送者，标识符被随机生成，以便同一个RTP回话期中没有任何两个同步源有相同的SSRC标识符。（有可能冲突，所以RTP实现要检测和解决冲突）
+- CSRC列表：0~15项，每项32byte，数目由CC给定。标识此包中负载的有贡献源。若贡献源超过15个，仅仅识别15个。
 - **Header extension**: (optional, presence indicated by *Extension* field) 最开始是一个profile-specific identifier (16 bits)和a length specifier (16 bits)。length specifier表示extension hender的长度，32bit为单位，包含第一个32比特。
+
+## 3.2 RTCP报文格式
+
+![](RTCP_header.png)
+
+
 
 # 4. 协议工作方式和原理
 
