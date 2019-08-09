@@ -1,4 +1,4 @@
-TODO：RTCP报文格式
+TODO：原理和如何应用
 
 # 1. RTP概述
 
@@ -45,7 +45,16 @@ TODO：RTCP报文格式
 
 ![](RTCP_header.png)
 
-
+- version（2）:定义RTP的版本，此前的版本是2
+- Padding（1）：如果设置为1，则一个或者多个附加的字节会被加载包头的最后。
+- Item Count（5）：表示本RTCP分组有多少个条目，最多有31个item，超过则需要应用层分组。
+- Pocket Type（8）：标识分组中携带消息的类型。RTP标准中定义了5中分组：
+  - RR：200 sender report，发送方报告。主要用来保证传输质量。
+  - SR：201 receiver report，接收方报告。主要用于同步多媒体流。
+  - SDES：202 source description，源描述报告。
+  - BYE：203 goodbye，离开会话
+  - APP：204 application-defined，应用定义
+- Length（16）：分组长度，以4 byte为单位，不包括4字节的固定头。Length为0时，IC也为0.
 
 # 4. 协议工作方式和原理
 
