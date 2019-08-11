@@ -49,6 +49,8 @@
   - io
     - bufio
       - [ReadLine长行截断问题](golang/io/bufio/ReadLine.md)
+  - rpc
+    - [golang_rpc框架调研](golang/rpc/golang_rpc框架调研.md)
   - websocket
     - [websocket注意事项和官方样例](golang/websocket/websocket.md)
 - linux
