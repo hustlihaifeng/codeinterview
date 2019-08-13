@@ -49,6 +49,8 @@
   - io
     - bufio
       - [ReadLine长行截断问题](golang/io/bufio/ReadLine.md)
+  - rpc
+    - [golang_rpc框架调研](golang/rpc/golang_rpc框架调研.md)
   - websocket
     - [websocket注意事项和官方样例](golang/websocket/websocket.md)
 - linux
@@ -61,6 +63,7 @@
   - [linux常见设置](linux/common_setting_in_linux.md)
   - [一次ftp出错](linux/setup_vsftp_server_in_centos.md)
   - [address already in use](linux/address_already_in_use.md)
+  - [expect](linux/expect.md)
 - docker
 
   - [docker笔记](docker/docker%20note.md)
