@@ -59,6 +59,13 @@ TODO：原理和如何应用
 # 4. 协议工作方式和原理
 
 1. RTP 使用偶数端口号接收发送数据，相应的RTCP则使用相邻的下一位奇数端口号。
+2. <https://github.com/topics/rtp> 这个topic包含了一些想要的内容。
+3. <https://github.com/pion/webrtc> 对webrtc的实现，2282颗星。
+4. <https://github.com/wernerd/GoRTP> 211颗星：A RTP stack for Go
+5. <https://github.com/CMU-Perceptual-Computing-Lab/caffe_rtpose> 实时多人姿势检测
+6. <https://github.com/j0r1/JRTPLIB> rtp库，作者应该做rtp很多年了，c/c++。
+7. <https://github.com/ZhengfengRao/rtp2mp4> 将rtp流转化问MP4文件。
+8. <https://github.com/hi35xx/live-streamer> RTP/RTSP stream server
 
 # 附录
 
