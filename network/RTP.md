@@ -1,4 +1,4 @@
-TODO：RTCP报文格式
+TODO：原理和如何应用
 
 # 1. RTP概述
 
@@ -45,11 +45,27 @@ TODO：RTCP报文格式
 
 ![](RTCP_header.png)
 
-
+- version（2）:定义RTP的版本，此前的版本是2
+- Padding（1）：如果设置为1，则一个或者多个附加的字节会被加载包头的最后。
+- Item Count（5）：表示本RTCP分组有多少个条目，最多有31个item，超过则需要应用层分组。
+- Pocket Type（8）：标识分组中携带消息的类型。RTP标准中定义了5中分组：
+  - RR：200 sender report，发送方报告。主要用来保证传输质量。
+  - SR：201 receiver report，接收方报告。主要用于同步多媒体流。
+  - SDES：202 source description，源描述报告。
+  - BYE：203 goodbye，离开会话
+  - APP：204 application-defined，应用定义
+- Length（16）：分组长度，以4 byte为单位，不包括4字节的固定头。Length为0时，IC也为0.
 
 # 4. 协议工作方式和原理
 
 1. RTP 使用偶数端口号接收发送数据，相应的RTCP则使用相邻的下一位奇数端口号。
+2. <https://github.com/topics/rtp> 这个topic包含了一些想要的内容。
+3. <https://github.com/pion/webrtc> 对webrtc的实现，2282颗星。
+4. <https://github.com/wernerd/GoRTP> 211颗星：A RTP stack for Go
+5. <https://github.com/CMU-Perceptual-Computing-Lab/caffe_rtpose> 实时多人姿势检测
+6. <https://github.com/j0r1/JRTPLIB> rtp库，作者应该做rtp很多年了，c/c++。
+7. <https://github.com/ZhengfengRao/rtp2mp4> 将rtp流转化问MP4文件。
+8. <https://github.com/hi35xx/live-streamer> RTP/RTSP stream server
 
 # 附录
 
