@@ -85,11 +85,12 @@ OS: CentOS 7 / 3.10.0-229.el7.x86_64
 
 ### 1.3.5 问题：rpc框架要求固定个数的输入参数和输出参数
 
+筛选golang写的，或者跨语言的rpc框架。
+
 1. grpc：<https://grpc.io/docs/guides/concepts/>  要求输出参数和输出参数都是一个
 2. rpcx：<https://doc.rpcx.site/part1/server.html#service> 要求输入参数是三个，输出参数是error
-3. go-micro：
-
-
+3. go-micro：<https://micro.mu/docs/writing-a-go-service.html#2-defining-the-api> 单输入、单输出的形式。
+4. thift-file: <https://thrift-tutorial.readthedocs.io/en/latest/thrift-file.html> thift似乎并不限制输入参数和输出参数个数。但是需要定义较复杂的服务代码，然后有工具转化为远程调用的格式。
 
 
 # 2. rpc能解决我们什么问题
@@ -99,6 +100,53 @@ OS: CentOS 7 / 3.10.0-229.el7.x86_64
    通过rpc，直接调用其他服务的函数，能解决这个问题。
 
 2. 成熟的rpc库相对http容器，封装了“服务发现”，"负载均衡"，“熔断降级”一类面向服务的高级特性。减轻了我们重复开发的工作量。
+
+## 2.1 总结
+
+1. 总上面的rpc选型来看，要接入rpc，要么需要定义类似于`.proto`、`.thift`这样的服务描述文件，要么需要将函数的输入和输出参数按照指定要求改造。违背了我们想通过rpc直接调用其他服务的功能，减少写http接口工作量的初衷。
+2. 换一个思路，我们可以通过直接调用其他服务的函数来编译，解决我们关于拷贝代码带来的版本复杂性的担忧。
+   - 最简单解耦：例如task里面使用了access/models里面`GetRoleById`函数，我们可以进行如下的解耦：
+
+```go
+import (
+	access_model "yiplatform-access/models"
+    "yiplatform-task/models"
+)
+
+func XXX(roleid,taskid int) (err error){
+    role,err := access_models.GetRoleById(roleid)
+    task,err := models.GetTaskById(taskid)
+}
+```
+
+- 定义接口层解耦：
+
+```go
+import (
+	"yiplatform-task/utils/access_models"
+    "yiplatform-task/models"
+)
+
+func XXX(roleid,taskid int) (err error){
+    role,err := access_models.GetRoleById(roleid)
+    task,err := models.GetTaskById(taskid)
+}
+```
+
+接口层：
+
+```go
+package access_model
+import (
+	"yiplatform/access/models"
+)
+
+func GetRoleById(roleid int) (role models.Role,err error) {
+    return models.GetRoleById(roleid)
+}
+```
+
+
 
 # 3. 接入rpcx，我们需要做什么
 
