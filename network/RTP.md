@@ -65,7 +65,17 @@ TODO：原理和如何应用
 5. <https://github.com/CMU-Perceptual-Computing-Lab/caffe_rtpose> 实时多人姿势检测
 6. <https://github.com/j0r1/JRTPLIB> rtp库，作者应该做rtp很多年了，c/c++。
 7. <https://github.com/ZhengfengRao/rtp2mp4> 将rtp流转化问MP4文件。
-8. <https://github.com/hi35xx/live-streamer> RTP/RTSP stream server
+8. <https://github.com/hi35xx/live-streamer> `RTP/RTSP` stream server
+
+## 4.1 尝试搭建一个`rtp server`
+
+1. 采集视频流，经过服务器转发，然后在经过`rtp2mp4`的包，在浏览器上播放。
+
+   1. rtp server:
+
+   - <https://github.com/ireader/media-server> 642颗星，支持RTSP/RTP/RTMP/FLV/HLS/MPEG-TS/MPEG-PS/MPEG-DASH/MP4/fMP4，c语言编写
+   - <https://github.com/notedit/media-server-go> 72颗星，WebRTC media server for go， c、go混合编写。
+   - <https://github.com/medooze/media-server> 424颗星，第2个项目应该使用了。WebRTC Media Server
 
 # 附录
 
