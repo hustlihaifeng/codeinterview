@@ -77,6 +77,8 @@ TODO：原理和如何应用
    - <https://github.com/notedit/media-server-go> 72颗星，WebRTC media server for go， c、go混合编写。
    - <https://github.com/medooze/media-server> 424颗星，第2个项目应该使用了。WebRTC Media Server
 
+2. 桌面共享项目： <https://github.com/hustlihaifeng/DesktopSharing>
+
 # 附录
 
 ## 标准文档
