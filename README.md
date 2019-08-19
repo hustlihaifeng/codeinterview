@@ -67,6 +67,7 @@
   - [一次ftp出错](linux/setup_vsftp_server_in_centos.md)
   - [address already in use](linux/address_already_in_use.md)
   - [expect](linux/expect.md)
+  - [ftp](linux/setup_vsftp_server_in_centos.md)
 - docker
 
   - [docker笔记](docker/docker%20note.md)
