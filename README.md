@@ -71,6 +71,9 @@
 - docker
 
   - [docker笔记](docker/docker%20note.md)
+- os
+  - k8s
+    - [k8s笔记](os/k8s/k8s_note.md)
 - 编码技巧
   - [how to code](skills/how_to_code.md)
 - tools
