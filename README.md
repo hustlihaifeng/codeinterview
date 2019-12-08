@@ -68,6 +68,7 @@
   - [address already in use](linux/address_already_in_use.md)
   - [expect](linux/expect.md)
   - [ftp](linux/setup_vsftp_server_in_centos.md)
+  - [搭建nfs系统](linux/setup_nfs_system.md)
 - docker
 
   - [docker笔记](docker/docker%20note.md)
