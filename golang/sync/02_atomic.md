@@ -1,8 +1,8 @@
-# 哪个库提供`CAS`原子操作
+# 1. 哪个库提供`CAS`原子操作
 
 1. 标准库`sync/atomic`
 
-# 原子操作可以对哪些数据类型使用
+# 2. 原子操作可以对哪些数据类型使用
 
 1. 类型包括`int32,int64,uint32,uint64,uintptr,unsafe.Pointer`，共六个
 2. int长度与平台相关
@@ -39,9 +39,9 @@ eg:
 	var fp *float64 = (*float64)(unsafe.Pointer(ip))
 ```
 
-# 有哪些原子操作
+# 3. 有哪些原子操作
 
-## 增或减Add
+## 3.1 增或减Add
 
 1. 被操作的类型只能是数值类型
 2. `int32,int64,uint32,uint64,uintptr`类型可以使用原子增或减操作
@@ -54,7 +54,7 @@ eg:
     newI64 := atomic.AddInt64(&i64,-3)
 ```
 
-## 比较并交换`CAS`
+## 3.2 比较并交换`CAS`
 
 1. 函数定义：
 
@@ -85,7 +85,7 @@ func addValue(delta int32){
 }
 ```
 
-## 载入Load
+## 3.3 载入Load
 
 1. 上面的比较并交换案例总 v:= value为变量v赋值，但… 要注意，在进行读取value的操作的过程中,其他对此值的读写操作是可以被同时进行的,**那么这个读操作很可能会读取到一个只被修改了一半的数据**. so , 我们要使用sync/atomic代码包同样为我们提供了一系列的函数，**以Load为前缀(载入)，来确保这样的糟糕事情发生**。
 2. 如：
@@ -113,24 +113,24 @@ func addValue(delta int32){
 - atomic.LoadInt32接受一个*int32类型的指针值
 - 返回该指针指向的那个值
 
-## 存储Store
+## 3.4 存储Store
 
 1. 与读取操作相对应的是写入操作。 而sync/atomic包也提供了与原子的载入函数相对应的原子的值存储函数。 以Store为前缀
 2. **在原子地存储某个值的过程中，任何CPU都不会进行针对同一个值的读或写操作**。
 3. **原子的值存储操作总会成功，因为它并不会关心被操作值的旧值是什么**
 
-### 交换Swap
+### 3.4.1 交换Swap
 
 1. 直接设置新值,返回被操作值的旧值. 此类操作比`CAS`操作的约束更少，同时又比原子载入操作的功能更强
 
-# 无锁map实现
+# 4. 无锁map实现
 
-## map的实现
+## 4.1 map的实现
 
 1. 参考 <https://tiancaiamao.gitbooks.io/go-internals/content/zh/02.3.html>
 2. Go中的map在底层是用哈希表实现的，你可以在 `$GOROOT/src/pkg/runtime/hashmap.goc` 找到它的实现。
 
-### map数据结构
+### 4.1.1 map数据结构
 
 1. map数据结构：
 
@@ -148,9 +148,9 @@ struct Hmap
 - hash值mod当前hash表大小决定某一个值属于哪个桶，而hash表大小是2的指数，即上面结构体中的2^B
 - 每次扩容，会增大到上次大小的两倍。结构体中有一个buckets和一个`oldbuckets`是用来实现增量扩容的。正常情况下直接使用buckets，而`oldbuckets`为空。如果当前哈希表正在扩容中，则`oldbuckets`不为空，并且buckets大小是`oldbuckets`大小的两倍。
 
-### map如何变化
+### 4.1.2 map如何变化
 
-## 无锁map的实现
+## 4.2 无锁map的实现
 
 1. 思路：使用`cas`，操作前读取，然后使用`CompareAndSwap`来对一个指针进行替换。操作对象是一个指针，如果对整个map用一个指针来操作的话，那么每次操作都需要对整个map进行替换，消耗太大。如果map里面的每个value都是一个原子操作的指针，似乎可以实现，也就是需要传给map的都是key和指针，这样才能用原子操作。那么问题的关键点变为如何将用户传入的value转换为一个指针？问题的复杂性在于，map并不能获取到存储value的这个变量的指针，map返回的直接是value，也就不能对该地址进行`CAS`操作。
 
