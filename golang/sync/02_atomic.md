@@ -156,7 +156,7 @@ struct Hmap
 
 2. `sync.Map`的解决办法是，底层的value，直接是指针：`map[interface{}]*entry`，那么我们可以从map中得到指针后，在对该指针进行`CAS`操作。问题在于从map中得到指针的这个过程中发生并发问题怎么办？`sync.Map`的解决办法是：读写分离，底层有两个map；读map read的key、value只有读（也即key和右边的指针变量的地址都不变）；写map dirty的key和value有读写，读写时都加锁；先在读map中不加锁的找，没找到再在写map中加锁找；找到通过atomic操作改变指针所指向的值（注意此时read map中的key和value都是不变的）；当读map中找不到达到一定次数时，加锁将写map升级为读map，进行同步；这样大部分的读都是无锁的，写是加锁的。几个问题：
 
-   1. 读map中的查和update好多，删除怎么办？将指针的值设置为nil？那么如果value值本身是nil怎么办？将指针值指向一个变量，该变量的值是nil。那么说明指正的值本身也是一个指针(`unsafe.Pointer`)，也即指针的指针.
+   1. 读map中的查和update好说，删除怎么办？将指针的值设置为nil？那么如果value值本身是nil怎么办？将指针值指向一个变量，该变量的值是nil。那么说明指针的值本身也是一个指针(`unsafe.Pointer`)，也即指针的指针.
 
    2. 读map和写map什么时候会不一致？
 
@@ -256,9 +256,9 @@ struct Hmap
        - p等于nil和`expunged`都表示该`kv`对已经被删除
          - p为nil时，`m.dirty`也为nil
          - p为`expunged`时，`m.dirty`不为nil，但是由于后面写map转换为读map时，是直接替换读map，所以写map `m.dirty`中不能有被删除的key. 通过在m.dirty被创建时将读map中的p改为`expunged`来实现（见源码`tryExpungeLocked`函数）(并且要将读map中不是删除状态的key拷贝到`m.dirty`中)（见源码`dirtyLocked函数`）。
-         - 对已经删除了的key重新设置值时，如果`m.dirty`为空，那么近期不会发生读写map替换，直接更新读map的值（后面`m.dirty`创建的时候会把这个值给赋值过来）。`m.dirty`不为空时，需要直接更改`m.dirty`里面的，如果更改读map，那么`m.dirty`中将缺失该key。
+         - 对已经删除了的key重新设置值时，如果`m.dirty`为空，那么近期不会发生读写map替换，直接更新读map的值（后面`m.dirty`创建的时候会把这个值给赋值过来）。`m.dirty`不为空时，需要直接更改`m.dirty`里面的，如果此时更改读map，那么`m.dirty`中将缺失该key。
 
-   4. 注意在`range`时，如果写map中有多的，需要先将写map转化为读map。注意源码中的，在加锁后的二次写map是否多的检验；如果没有的话，那么加锁过程中写map并发转化为读map（写map一并清零），如果此时直接用写map替换读map，那么会导致所有数据丢失。**加锁后二次检验，防止加锁过程中前述判断条件被并发修改了**
+   4. 注意在`range`时，如果写map中有多的，需要先将写map转化为读map。注意源码中的，在加锁后的二次检查写map是否多；如果没有的话，那么加锁过程中写map并发转化为读map（写map一并清零），如果此时直接用写map替换读map，那么会导致所有数据丢失。**加锁后二次检验，防止加锁过程中前述判断条件被并发修改了**
 
    5. <https://colobu.com/2017/07/11/dive-into-sync-Map/>这边文章有对`sync.Map`两点的总结。
 
