@@ -13,10 +13,23 @@
       - [01 堆](algorithm/tree/heap/01%20堆.md)
     - binary_tree
       - [二叉树的深度（先序 中序 后序）和广度优先遍历](algorithm/tree/binary_tree/transfer_of_binary_tree.md)
+      - [二叉树的最近公共祖先](algorithm/tree/lowestCommonAncestor/note.md)
   - map
     - leetcode
       - [128 最长连续子集合的长度](algorithm/map/leetcode/128longest_consecutive_sequence/128longest_consecutive_sequence.md)
+  - 数组
+    - [三数之和为0](algorithm\slice\threeSum\note.md)
+    - [岛屿的最大面积](algorithm/slice/maxAreaOfIsland/try20200228/note.md)
+    - [搜索旋转排序数组](algorithm/slice/search/try20200229/note.md)
+    - [最长连续递增序列](algorithm/slice/findLengthOfLCIS/try20200229/note.md)
+    - [最长连续序列](algorithm/slice/longestConsecutive/try20200301/note.md)
+    - [数组中的第K个最大元素](algorithm/slice/findKthLargest/try20200301/note.md)
+    - [第k个排列](algorithm/slice/getPermutation/try20200303/note.md)
+    - [朋友圈](algorithm/slice/findCircleNum/try20200303/note.md)
+    - [合并区间](algorithm/slice/merge/try20200305/note.md)
+    - [接雨水](algorithm/slice/trap/try20200305/note.md)
   - 动态规划和贪心
+    - [买卖股票的最佳时机](algorithm/dp_greedy/maxProfit/try20200308/main.go)
     - [最大正方形面积问题](algorithm/dp_greedy/maximalsquare/maximalsquare.md)
     - [最大连续子数组之和](algorithm/dp_greedy/maxSubArray/maxSubArray.md)
     - [三角形型二维数组的最短路径和](algorithm/dp_greedy/minimumTotal/minimumTotal.md)
@@ -25,9 +38,18 @@
   - 数据结构
     - [最小栈](algorithm/data_structure/MinStack/MinStack.md) 
     - [全O(1)的LRUCache](algorithm/data_structure/LRUCache/LRUCache.md)
+    - [全 O(1) 的数据结构](algorithm/data_structure/AllOne/try20200321/main.go)
   - string
     - [最长的无重复字符的子串长度](algorithm/string/lengthOfLongestSubstring/lengthOfLongestSubstring.md)
+    - [最长公共前缀](algorithm/string/longestCommonPrefix/try20200220\main.go)
+    - [字符串的排列](algorithm/string/checkInclusion/try20200220/main.go)
+    - [字符串相乘](algorithm/string/multiply/try20200221/main.go)
     - [字符串内单词间反转](algorithm/string/reverseWords/reverseWords.md)
+    - [简化路径](algorithm/string/simplifyPath/try20200222/main.go)
+    - [复原IP地址](algorithm/string/restoreIpAddresses/main.go)
+  - 其他
+    - [x 的平方根](algorithm/other/mySqrt/main.go)
+    - [第二高的薪水](algorithm/other/SecondHighestSalary/main.sql)
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis

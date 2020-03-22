@@ -114,7 +114,7 @@ func getIntersectionNode(headA, headB *ListNode) *ListNode {
 	pb := headB
 	for pa != pb {
 		if pa == nil {
-			pa = headB
+			pa = headB // TODO:这种写法不是很好理解，为什么nil要算一个？？？
 		} else {
 			pa = pa.Next
 		}
