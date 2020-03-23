@@ -100,6 +100,7 @@
     - [k8s笔记](os/k8s/k8s_note.md)
 - 编码技巧
   - [how to code](skills/how_to_code.md)
+  - [how to learn](skills/how_to_learn.md)
 - tools
   - [vim](tools/vim.md)
   - [tmux](tools/tmux.md)
@@ -109,3 +110,5 @@
 - network
   - [SO_REUSEADDR和SO_REUSEPORT](network/SO_REUSEADDR_AND_SO_REUSEPORT.md)
   - [RTP](network/RTP.md)
+- 安全
+  - [常见安全算法分类和https](safe/common_safe_algorithm.md)
