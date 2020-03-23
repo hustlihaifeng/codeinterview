@@ -119,6 +119,22 @@
 
 2. HTTPS是使用RSA进行身份验证和交换密钥，然后再使用交换的密钥进行加解密数据。身份验证是使用RSA的非对称加密，而数据传输是双方使用相同的密钥进行的对称加密。
 
+## 5.4 https的问题
+
+### 5.4.1 中间人攻击
+
+1. 关键在于**黑客通过特殊途径在被攻击者的手机上安装根证书；**：
+
+![](middle_man_attack.jpeg)
+
+> - 黑客通过特殊途径在被攻击者的手机上安装根证书；
+> - 客户端发起连接请求，代理服务器（Fiddler）在中间截取请求，返回自己签名的伪造证书；
+> - 客户端收到证书后会在系统中查找信任的根证书，因为黑客已经事先在被攻击者手机上安装了自己的根证书，因此客户端验证通过；
+> - 客户端后续就会把Fiddler当成合法的服务器；
+> - 而Fiddler会与真实的服务器通信，截获密钥，解密数据。
+>
+> ​                                           ---- [中间人攻击，HTTPS也可以被碾压](https://blog.fundebug.com/2019/09/17/mitm-for-https/)
+
 # 参考资料
 
 1. [常用的安全算法](https://tojohnonly.github.io/25-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AE%89%E5%85%A8%E7%AE%97%E6%B3%95.html)
@@ -130,3 +146,5 @@
 4. [【区别】摘要、数字签名、数字证书](https://zhuanlan.zhihu.com/p/32754315)
 
 5. [[信息安全\] 3.HTTPS工作流程](https://www.cnblogs.com/linianhui/p/security-https-workflow.html)
+
+6. [中间人攻击，HTTPS也可以被碾压](https://blog.fundebug.com/2019/09/17/mitm-for-https/)
