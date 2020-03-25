@@ -53,6 +53,7 @@
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis
+  - [redis数据结构的常见用法和使用场景](redis/common_usage_and_target_situation_of_redis_data_structure.md)
   - [01 redis持久化方案](redis/01%20redis持久化方案.md)
   - [redis事物与ACID](redis/02%20redis事物与ACID.md)
 - mysql
