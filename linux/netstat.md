@@ -21,7 +21,7 @@ netstat可用来查看socket套接字情况，包括TCP、UDP、unix domain sock
 - 统计
 	- `-s, --statistics`:  display networking statistics (like SNMP)
 # TCP端口状态详解
-![](state%20of%20tcp.png)
+![](state_of_tcp.png)
 
 ## TIME_WAIT状态过多怎么办
 ### TIME_WAIT状态代表什么
