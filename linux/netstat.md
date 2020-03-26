@@ -23,6 +23,13 @@ netstat可用来查看socket套接字情况，包括TCP、UDP、unix domain sock
 # TCP端口状态详解
 ![tcp状态转换图](state_of_tcp.png)
 
+1. 关闭时：
+   1. 主动关闭的一方，状态依次为：`FIN_WAIT_1、FIN_WAIT_2、TIME_WAIT`
+   2. 被动关闭的一方，状态依次为: `CLOSE_WAIT、LAST_ACK、CLOSED`
+2. 打开时：
+   1. 主动打开的一方，在调用`connect`后，状态依次为：`SYN_SENT、ESTABLISHED`
+   2. 被动打开的一方，状态依次为：`LISTEN、SYN_RCVD、ESTABLISHED`
+
 ## TIME_WAIT状态过多怎么办
 ### TIME_WAIT状态代表什么
 1. `TIME_WAIT`代表主动关闭的一方，已经收到对方回复的`FIN`并发送了`ACK`，等待一段时间就可以直接进入`CLOSED`状态了。
