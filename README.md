@@ -109,6 +109,7 @@
   - [git](tools/git.md)
   - [processon](tools/processon.md)
   - [virtualbox](tools/virtualbox.md)
+  - [chrome](tools/chrome.md)
 - network
   - [SO_REUSEADDR和SO_REUSEPORT](network/SO_REUSEADDR_AND_SO_REUSEPORT.md)
   - [RTP](network/RTP.md)
