@@ -83,6 +83,7 @@
 - linux
   - [linux进程间通信](linux/communication%20between%20processes%20in%20linux.md)
   - [netstat](linux/netstat.md)
+  - [tcp time_wait问题](linux/time_wait_of_tcp.md)
   - [tcp粘包问题](linux/tcp粘包问题.md)
   - [tcp发送速度控制](linux/speed_control_of_tcp.md)
   - [linux常见资源监控命令](linux/resource%20monitor%20of%20linux.md)
