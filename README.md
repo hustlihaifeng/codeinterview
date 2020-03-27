@@ -50,6 +50,8 @@
   - 其他
     - [x 的平方根](algorithm/other/mySqrt/main.go)
     - [第二高的薪水](algorithm/other/SecondHighestSalary/main.sql)
+  - 实际应用
+      - [一致性哈希算法](algorithm/practice/consistent_hash/introduce_to_consistent_hash.md)
 - markdown
   - [01 markdown里的连接](markdown/01%20连接.md)
 - redis
