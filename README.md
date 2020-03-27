@@ -115,3 +115,5 @@
   - [RTP](network/RTP.md)
 - 安全
   - [常见安全算法分类和https](safe/common_safe_algorithm.md)
+- 设计模式
+  - [常见设计模式及其应用场景](design_pattern/common_design_pattern_and_its_problem.md)
