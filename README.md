@@ -119,3 +119,5 @@
   - [常见安全算法分类和https](safe/common_safe_algorithm.md)
 - 设计模式
   - [常见设计模式及其应用场景](design_pattern/common_design_pattern_and_its_problem.md)
+- 架构设计
+  - [如何设计一个百万级用户的抽奖系统](architecture/如何设计一个百万级用户的抽奖系统.md)
