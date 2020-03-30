@@ -124,4 +124,3 @@
   - [微服务](architecture/micro_service.md)
   - [长链接和短连接](architecture/long_connection_and_short_connection.md)
   - [负载均衡](architecture/常见负载均衡方案.md)
-
