@@ -122,4 +122,4 @@
 - 架构设计
   - [如何设计一个百万级用户的抽奖系统](architecture/如何设计一个百万级用户的抽奖系统.md)
   - [微服务](architecture/micro_service.md)
-
+  - [长链接和短连接](architecture/long_connection_and_short_connection.md)
