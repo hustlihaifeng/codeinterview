@@ -99,6 +99,13 @@
 - docker
 
   - [docker笔记](docker/docker%20note.md)
+  - [docker-compose](docker/docker-compose/basic_of_docker_compose.md)
+  - [docker常见操作](docker/docker_options.md)
+  - [docker数据目录设置与迁移](docker/docker_root_dir.md)
+  - [如何在镜像中安装rpm依赖](docker/docker_rpm_install.md)
+  - [dockerfile](docker/dockerfile.md)
+    - [dockerfile多阶段构建](docker/multi_state_dockerfile.md)
+  - [docker搭建mysq_ redis_registry_python服务](docker/docker搭建mysq_ redis服务.md)
 - os
   - k8s
     - [k8s笔记](os/k8s/k8s_note.md)
