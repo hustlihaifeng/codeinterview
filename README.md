@@ -69,6 +69,7 @@
   - sync
     - [01 等待所有goroutine结束](golang/sync/01%20等待所有goroutine结束.md)
     - [02 原子操作和并发安全的map实现](golang/sync/02_atomic.md)
+    - [sync.Map](golang/sync/map/Map/main.go)
   - channel
     - [01 阻塞式channel和非阻塞式channel](golang/channel/01%20阻塞式channel和非阻塞式channel.md)
   - slice
@@ -82,6 +83,19 @@
     - [websocket注意事项和官方样例](golang/websocket/websocket.md)
   - reflect
     - [reflect](golang/reflect/reflect.md)
+  - beego
+    - [beego配置模块](golang/beego/config_of_beego.md)
+  - cache
+    - [TODO:beego cache](golang/cache/cache.md)
+  - gc
+    - [TODO：Go GC 20 问](golang/gc/learning_go_gc_20_question.md)
+  - 依赖管理
+    - [go module](golang/module/introduction_go_module.md)
+    - [go vendor](golang/vendor/govendor_and_git_submodule.md)
+  - net
+    - [改golang源码后如何重新编译](golang/net/http/httputil/httputil.md)
+  - toolbox
+    - [TODO:定时任务](golang/toolbox/toolbox.md)
 - linux
   - [linux进程间通信](linux/communication%20between%20processes%20in%20linux.md)
   - [netstat](linux/netstat.md)

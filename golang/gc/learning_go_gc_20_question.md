@@ -1,0 +1,5 @@
+
+
+# 参考文章
+
+1. [Go GC 20 问](https://mp.weixin.qq.com/s?__biz=MjM5MDUwNTQwMQ==&mid=2257484062&idx=1&sn=40a8cca15b9c215f8a29e60e6d8a3542&chksm=a53919c8924e90de345abb48b2e0789f8f8ca1557c607680ca366112fd4d7668e57c742700e3&mpshare=1&scene=1&srcid=&sharer_sharetime=1582118623661&sharer_shareid=f580f8e189ec9d3db6e796ce2712126a&key=7a968b619e4662bc362cc5fa5af892fce6c895904b0440f08442043d82381b5bb9fd8d5063b56ede024c43dd4606a2ce5c2962f323e4591d83b919120a643bc187ac73c5f153b1b9480d742bd1bc40ab&ascene=1&uin=Mjc4NTAyMjgwNg%3D%3D&devicetype=Windows+10&version=6208006f&lang=zh_CN&exportkey=AdQwQyw1WGptz7OC1ksEVZs%3D&pass_ticket=DQVi4QilkH1wPXzbFBMjKx6uxcoY5slcveMQSDF2MKjNCN5yGd93XKiZpBGwtkTU)
