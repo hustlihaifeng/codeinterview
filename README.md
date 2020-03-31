@@ -63,6 +63,13 @@
   - [01 InnoDB和MyISAM](mysql/01%20InnoDB和MyISAM.md)
   - [02 MySQL大表优化](mysql/02%20MySQL大表优化.md)
   - [03 DDL DML 事物和delete truncate drop](mysql/03%20DDL%20DML%20and%20transaction.md)
+- hadoop
+  - hdfs
+    - [hdfs架构原理和基本操作](hadoop/hdfs/hdfs_basic.md)
+    - [搭建CDH](hadoop/hdfs/CDH_setup.md)
+    - [hdfs加密-1](hadoop/hdfs/hdfs_encrypt.md)
+    - [hdfs加密-2](hadoop/hdfs/hdfs_encrypt_from_simon.md)
+    - [hdfs配置项](hadoop/hdfs/hdfs_config.md)
 - oracle
   - [01 oracle环境搭建与常见问题](oracle/oracle_basic.md)
   - [02 beego orm从mysql切换到oracle](oracle/migrate_from_beego_orm_of_mysql_to_oracle.md)
