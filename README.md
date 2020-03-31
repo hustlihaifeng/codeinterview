@@ -97,6 +97,13 @@
     - [改golang源码后如何重新编译](golang/net/http/httputil/httputil.md)
   - toolbox
     - [TODO:定时任务](golang/toolbox/toolbox.md)
+- python
+  - [win10 python2.75 安装pip报错](python/install.md)
+  - [TODO:python_to_xls](python/python_to_xls.md)
+  - [python_use_mysql](python/python_use_mysql.md)
+  - [python项目源码分析](python/source_code_analysis_of_data_analysis.md)
+  - [venv](python/venv.md)
+  - [flask](python/flask.md)
 - linux
   - [linux进程间通信](linux/communication%20between%20processes%20in%20linux.md)
   - [netstat](linux/netstat.md)
@@ -116,6 +123,8 @@
   - [centos_reboot_fail_after_remove_virtual_disk](linux/centos_reboot_fail_after_remove_virtual_disk.md)
   - [diff_and_patch_in_linux](linux/diff_and_patch_in_linux.md)
   - [upgrade_linux_kernel_without_network](linux/upgrade_linux_kernel_without_network.md)
+- windows
+  - [windows远程连接](windows/remote_desktop_of_windows.md)
 - docker
 
   - [docker笔记](docker/docker%20note.md)
