@@ -105,7 +105,7 @@
   - [如何在镜像中安装rpm依赖](docker/docker_rpm_install.md)
   - [dockerfile](docker/dockerfile.md)
     - [dockerfile多阶段构建](docker/multi_state_dockerfile.md)
-  - [docker搭建mysq_ redis_registry_python服务](docker/docker搭建mysq_ redis服务.md)
+  - [docker搭建mysq_ redis_registry_python服务](docker/docker_setup_mysq_ redis_and_so_on.md)
 - os
   - k8s
     - [k8s笔记](os/k8s/k8s_note.md)
