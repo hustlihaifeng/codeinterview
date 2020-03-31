@@ -111,6 +111,12 @@
   - [python项目源码分析](python/source_code_analysis_of_data_analysis.md)
   - [venv](python/venv.md)
   - [flask](python/flask.md)
+- ml
+  - cs229stanford
+    - [class01](ml/cs229stanford/class01.md)
+    - [02_gradient_descent](ml/cs229stanford/02_gradient_descent.md)
+    - [class02linear_regression_gradient_descent_normal_equation](ml/cs229stanford/class02linear_regression_gradient_descent_normal_equation.md)
+    - [class03underfitting_and_overfitting](ml/cs229stanford/class03underfitting_and_overfitting.md)
 - linux
   - [linux进程间通信](linux/communication%20between%20processes%20in%20linux.md)
   - [netstat](linux/netstat.md)
