@@ -105,6 +105,7 @@
 - 编码技巧
   - [how to code](skills/how_to_code.md)
   - [how to learn](skills/how_to_learn.md)
+  - [如何避坑](attention.md)
 - tools
   - [vim](tools/vim.md)
   - [tmux](tools/tmux.md)
