@@ -123,6 +123,11 @@
 - os
   - k8s
     - [k8s笔记](os/k8s/k8s_note.md)
+    - [k8s优先级](os/k8s/PriorityClass_of_k8s.md)
+    - [TODO:k8s容器类型](os/k8s/container_type_of_k8s.md)
+    - [k8s_nodeSelector](os/k8s/k8s_nodeSelector.md)
+    - [TODO:local_persistent_volumes_of_k8s](os/k8s/local_persistent_volumes_of_k8s.md)
+    - [安装k8s](os/k8s/setup_k8s.md)
 - 编码技巧
   - [how to code](skills/how_to_code.md)
   - [how to learn](skills/how_to_learn.md)
