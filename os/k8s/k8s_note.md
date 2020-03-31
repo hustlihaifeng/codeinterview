@@ -109,3 +109,10 @@ Kubernetes **restarts containers that fail, replaces containers, kills container
    ```
 
    
+
+## 2.7 定义自己的调度器
+
+1. 例子见文档 <https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/>
+2. 使用：  pod.Spec.SchedulerName 来指定调度器名称
+3. 默认调度器文档： <https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/> 
+4. k8s14的文档中自定义调度器：<https://v1-14.docs.kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/>
