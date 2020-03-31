@@ -58,6 +58,7 @@
   - [redis数据结构的常见用法和使用场景](redis/common_usage_and_target_situation_of_redis_data_structure.md)
   - [01 redis持久化方案](redis/01%20redis持久化方案.md)
   - [redis事物与ACID](redis/02%20redis事物与ACID.md)
+  - [TODO:redis_cluster](redis/redis_cluster.md)
 - mysql
   - [01 InnoDB和MyISAM](mysql/01%20InnoDB和MyISAM.md)
   - [02 MySQL大表优化](mysql/02%20MySQL大表优化.md)
