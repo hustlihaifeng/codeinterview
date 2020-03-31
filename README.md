@@ -110,6 +110,11 @@
   - [expect](linux/expect.md)
   - [ftp](linux/setup_vsftp_server_in_centos.md)
   - [搭建nfs系统](linux/setup_nfs_system.md)
+    - [nfsv4.1_mount_hang](linux/nfsv4.1_mount_hang.md)
+  - [centos_add_space_to_root_partition](linux/centos_add_space_to_root_partition.md)
+  - [centos_reboot_fail_after_remove_virtual_disk](linux/centos_reboot_fail_after_remove_virtual_disk.md)
+  - [diff_and_patch_in_linux](linux/diff_and_patch_in_linux.md)
+  - [upgrade_linux_kernel_without_network](linux/upgrade_linux_kernel_without_network.md)
 - docker
 
   - [docker笔记](docker/docker%20note.md)
