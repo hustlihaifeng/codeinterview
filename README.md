@@ -78,6 +78,7 @@
     - [01 等待所有goroutine结束](golang/sync/01%20等待所有goroutine结束.md)
     - [02 原子操作和并发安全的map实现](golang/sync/02_atomic.md)
     - [sync.Map](golang/sync/map/Map/main.go)
+    - [锁](golang/sync/lock.md)
   - channel
     - [01 阻塞式channel和非阻塞式channel](golang/channel/01%20阻塞式channel和非阻塞式channel.md)
   - slice
