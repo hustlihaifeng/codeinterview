@@ -36,7 +36,7 @@
     - [最长递增数组长度问题](algorithm/dp_greedy/lengthOfLIS/lengthOfLIS.md)
     - [俄罗斯套娃问题](algorithm/dp_greedy/maxEnvelopes/maxEnvelopes.md)
   - 数据结构
-    - [最小栈](algorithm/data_structure/MinStack/MinStack.md) 
+    - [最小栈](algorithm/data_structure/MinStack/MinStack.md)
     - [全O(1)的LRUCache](algorithm/data_structure/LRUCache/LRUCache.md)
     - [全 O(1) 的数据结构](algorithm/data_structure/AllOne/try20200321/main.go)
   - string
@@ -136,6 +136,7 @@
   - [centos_reboot_fail_after_remove_virtual_disk](linux/centos_reboot_fail_after_remove_virtual_disk.md)
   - [diff_and_patch_in_linux](linux/diff_and_patch_in_linux.md)
   - [upgrade_linux_kernel_without_network](linux/upgrade_linux_kernel_without_network.md)
+  - [文件 文件描述符 文件句柄](linux/file_descriptor.md)
 - windows
   - [windows远程连接](windows/remote_desktop_of_windows.md)
 - docker
