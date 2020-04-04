@@ -28,6 +28,7 @@
     - [朋友圈](algorithm/slice/findCircleNum/try20200303/note.md)
     - [合并区间](algorithm/slice/merge/try20200305/note.md)
     - [接雨水](algorithm/slice/trap/try20200305/note.md)
+    - [一维有序数组二维化后的二分查找](algorithm\slice\searchMatrix\try20200404/main.md)
   - 动态规划和贪心
     - [买卖股票的最佳时机](algorithm/dp_greedy/maxProfit/try20200308/main.go)
     - [最大正方形面积问题](algorithm/dp_greedy/maximalsquare/maximalsquare.md)
