@@ -29,4 +29,4 @@ return false
 ```
 
 # 代码
-1. 见[main.go][main.go]
+1. 见[main.go](main.go)
