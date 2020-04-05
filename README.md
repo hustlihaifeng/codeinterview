@@ -7,6 +7,8 @@
     - [01 环形链表检测](algorithm/list/ring_check/01%20环形链表检测.md)
     - [02 奇升偶降单链表重整为降序链表](algorithm/list/reorder/奇升偶降单链表重整为降序链表.md)
     - [03 链表常见操作](algorithm/list/list_operations.md)
+  - stack
+      - [有序栈](algorithm/stack/sorted_stack/dailyTemperatures/main.md)
   - tree
     - [01 平衡二分查找树、B树、B+树、R树](algorithm/tree/01%20平衡二分查找树、B树、B+树、R树.md)
     - heap
