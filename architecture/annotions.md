@@ -34,6 +34,31 @@
 
 
 
+# 3. 常用软件性能指标
+
+## 3.1 MySQL
+
+1. [MySQL数据库三个关键性能指标--TPS\QPS\IOPS](https://database.51cto.com/art/201910/604214.htm) 查询方式:
+
+   - TPS
+
+   ```sql
+   use information_schema;
+   select VARIABLE_VALUE into @num_com from GLOBAL_STATUS where VARIABLE_NAME ='COM_COMMIT';
+   select VARIABLE_VALUE into @num_roll from GLOBAL_STATUS where VARIABLE_NAME ='COM_ROLLBACK';
+   select VARIABLE_VALUE into @uptime from GLOBAL_STATUS where VARIABLE_NAME ='UPTIME';
+   select (@num_com+@num_roll)/@uptime;
+   ```
+
+   - QPS
+
+   ```sql
+   use information_schema;
+   select VARIABLE_VALUE into @num_queries from GLOBAL_STATUS where VARIABLE_NAME ='QUESTIONS';
+   select VARIABLE_VALUE into @uptime from GLOBAL_STATUS where VARIABLE_NAME ='UPTIME';
+   select @num_queries/@uptime;
+   ```
+
 # 参考资料
 
 1. [QPS、RT、PV、UV、SLA、DAU 介绍](<https://www.jianshu.com/p/ef44f5c11115>)
