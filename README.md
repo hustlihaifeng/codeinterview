@@ -163,6 +163,7 @@
     - [k8s_nodeSelector](os/k8s/k8s_nodeSelector.md)
     - [TODO:local_persistent_volumes_of_k8s](os/k8s/local_persistent_volumes_of_k8s.md)
     - [安装k8s](os/k8s/setup_k8s.md)
+    - [k8s网络](os/k8s/k8s_network.md)
 - 编码技巧
   - [how to code](skills/how_to_code.md)
   - [how to learn](skills/how_to_learn.md)
