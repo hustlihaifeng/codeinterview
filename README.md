@@ -192,4 +192,5 @@
   - [负载均衡](architecture/常见负载均衡方案.md)
   - [分布式事物](architecture/distributed_consensus_problem.md)
   - [12306的难点和解决办法](architecture/problem_and_skill_in_12306.md)
+  - [服务热更新](architecture/go_server_hot_upgrade.md)
   - [常用概念](architecture/annotions.md)
