@@ -191,4 +191,5 @@
   - [长链接和短连接](architecture/long_connection_and_short_connection.md)
   - [负载均衡](architecture/常见负载均衡方案.md)
   - [分布式事物](architecture/distributed_consensus_problem.md)
+  - [12306的难点和解决办法](architecture/problem_and_skill_in_12306.md)
   - [常用概念](architecture/annotions.md)
