@@ -167,6 +167,7 @@
 - 技巧
   - [how to code](skills/how_to_code.md)
   - [how to learn](skills/how_to_learn.md)
+  - [如何准备项目经历面试](skills/how_to_prepare_for_previous_project.md)
   - [常见问题](skills/common_question.md)
   - [如何避坑](attention.md)
   - [常见面试题](skills/common_question.md)
