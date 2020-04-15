@@ -143,6 +143,7 @@
   - [diff_and_patch_in_linux](linux/diff_and_patch_in_linux.md)
   - [upgrade_linux_kernel_without_network](linux/upgrade_linux_kernel_without_network.md)
   - [文件 文件描述符 文件句柄](linux/file_descriptor.md)
+  - [守护进程的原理以及go程序的特殊性和解决办法](linux/daemon_process.md)
 - windows
   - [windows远程连接](windows/remote_desktop_of_windows.md)
 - docker
