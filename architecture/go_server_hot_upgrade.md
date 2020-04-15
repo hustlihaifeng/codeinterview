@@ -23,6 +23,74 @@
 - 与Memcached的经典多线程模型相比，Nginx是经典的多进程模型。 
 - TODO：源码级别学习nginx，高负载就看这个了。
 
+2. nginx配置更新和服务热升级,详见：[nginx启动、重启、重新加载配置文件和平滑升级](<https://blog.csdn.net/gnail_oug/article/details/52754491>)
+
+   1. nginx配置更新：`nginx -s reload`  或者  `kill -HUP 主进程号`
+
+      - 主进程好即master进程号
+
+      ```shell
+      [root@localhost sbin]# ps -ef|grep nginx
+      root       9944      1  0 13:22 ?        00:00:00 nginx: master process ./nginx
+      nobody     9949   9944  0 13:23 ?        00:00:00 nginx: worker process
+      root       9960   9917  0 13:28 pts/1    00:00:00 grep nginx
+      [root@songguoliang sbin]# kill -HUP 9944
+      ```
+
+   2. nginx平滑升级：
+
+      1. 用新的nginx可执行程序替换旧的可执行程序，即下载新的nginx，重新编译到旧版本的安装路径中(重新编译之前可以备份旧的可执行文件)
+      2. 给nginx主进程号发送USR2信号
+
+      ```shell
+      [root@localhost sbin]# ps -ef |grep nginx
+      root       9944      1  0 13:22 ?        00:00:00 nginx: master process ./nginx
+      nobody     9965   9944  0 13:29 ?        00:00:00 nginx: worker process
+      root      10010   9917  0 13:42 pts/1    00:00:00 grep nginx
+      [root@localhost sbin]# kill -USR2 9944
+      [root@localhost sbin]# ps -ef |grep nginx
+      root       9944      1  0 13:22 ?        00:00:00 nginx: master process ./nginx
+      nobody     9965   9944  0 13:29 ?        00:00:00 nginx: worker process
+      root      10012   9944  0 13:43 ?        00:00:00 nginx: master process ./nginx
+      nobody    10013  10012  0 13:43 ?        00:00:00 nginx: worker process
+      root      10015   9917  0 13:43 pts/1    00:00:00 grep nginx
+      
+      ```
+
+       	3. 给旧的主进程发送WINCH信号，kill -WINCH 旧的主进程号
+
+      ```shell
+      [root@localhost sbin]# ps -ef |grep nginx
+      root       9944      1  0 13:22 ?        00:00:00 nginx: master process ./nginx
+      nobody     9965   9944  0 13:29 ?        00:00:00 nginx: worker process
+      root      10012   9944  0 13:43 ?        00:00:00 nginx: master process ./nginx
+      nobody    10013  10012  0 13:43 ?        00:00:00 nginx: worker process
+      root      10092   9917  0 14:05 pts/1    00:00:00 grep nginx
+      [root@localhost sbin]# kill -WINCH 9944
+      [root@localhost sbin]# 
+      [root@localhost sbin]# 
+      [root@localhost sbin]# 
+      [root@localhost sbin]# ps -ef |grep nginx
+      root       9944      1  0 13:22 ?        00:00:00 nginx: master process ./nginx
+      root      10012   9944  0 13:43 ?        00:00:00 nginx: master process ./nginx
+      nobody    10013  10012  0 13:43 ?        00:00:00 nginx: worker process
+      root      10094   9917  0 14:06 pts/1    00:00:00 grep nginx
+      ```
+
+      旧的主进程号收到WINCH信号后，将旧进程号管理的旧的工作进程优雅的关闭。即一段时间后旧的工作进程全部关闭，只有新的工作进程在处理请求连接。这时，依然可以恢复到旧的进程服务，因为旧的进程的监听socket还未停止。
+
+      4. 给旧的主进程发送QUIT信号，使其关闭。
+
+      ```shell
+      [root@localhost sbin]# kill -QUIT 9944
+      [root@localhost sbin]# ps -ef |grep nginx
+      root      10012      1  0 13:43 ?        00:00:00 nginx: master process ./nginx
+      nobody    10013  10012  0 13:43 ?        00:00:00 nginx: worker process
+      root      10118   9917  0 14:16 pts/1    00:00:00 grep nginx
+      ```
+
+      给旧的主进程发送QUIT信号后，旧的主进程退出，并移除logs/nginx.pid.oldbin文件，nginx的升级完成。
+
 ## 1.3 golang实现类似nginx的服务热更新
 
 ### 1.3.1  流程
