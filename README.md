@@ -196,5 +196,6 @@
   - [12306的难点和解决办法](architecture/problem_and_skill_in_12306.md)
   - [服务热更新](architecture/go_server_hot_upgrade.md)
   - [常用概念](architecture/annotions.md)
+  - [https性能优化](architecture/https_speed_up.md)
 - nginx
   - [nginx负载均衡的常见方案](nginx/common_nginx_load_banlance_algorithm.md)
