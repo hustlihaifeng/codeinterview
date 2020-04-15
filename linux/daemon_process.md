@@ -129,7 +129,9 @@ daemonize -p /var/run/myapp.pid -l /var/lock/subsys/myapp -u nobody /path/to/mya
 挂载到输出文件，而不是冲掉默认值。只有应用了-e and/or -o 被指定的情况。
 ```
 
+### 1.3.2 nohup & 方案 和 daemonize方案的区别
 
+1. 详见https://stackoverflow.com/a/958454，简言之，nohup直接忽略一些信号；而daemonize似乎是将上面介绍的《unix网络高级编程》中的两次fork方案做成了一个工具。
 
 # 参考资料
 
