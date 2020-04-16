@@ -22,6 +22,31 @@
 - 多线程在多并发情况下，线程的**内存占用大，线程上下文切换造成CPU大量的开销**
 - 与Memcached的经典多线程模型相比，Nginx是经典的多进程模型。 
 - TODO：源码级别学习nginx，高负载就看这个了。
+- 关于多个socket端口复用：
+
+> **设置socket的SO_REUSEADDR选项，即可实现端口复用：
+>
+> ```c
+> int opt = 1;
+> // sockfd为需要端口复用的套接字
+> setsockopt(sockfd, SOL_SOCKET, SO_REUSEADDR, (const void *)&opt, sizeof(opt));
+> ```
+>
+> 1、当有一个有相同本地地址和端口的socket1处于TIME_WAIT状态时，而你启动的程序的socket2要占用该地址和端口，你的程序就要用到该选项。
+>
+> 2、SO_REUSEADDR允许同一port上启动同一服务器的多个实例(多个进程)。但每个实例绑定的IP地址是不能相同的。在有多块网卡或用IP Alias技术的机器可以测试这种情况。
+>
+> 3、SO_REUSEADDR允许单个进程绑定相同的端口到多个socket上，但每个socket绑定的ip地址不同。这和2很相似，区别请看UNPv1。
+>
+> 4、SO_REUSEADDR允许完全相同的地址和端口的重复绑定。但这只用于UDP的多播，不用于TCP。
+>
+> 端口复用允许在一个应用程序可以把 n 个套接字绑在一个端口上而不出错。同时，这 n 个套接字发送信息都正常，没有问题。但是，这些套接字并不是所有都能读取信息，只有最后一个套接字会正常接收数据。
+>
+> 我感觉你这个例子，只是说明在设置so_reuseaddr下，使用不同的传输层协议情况下对相同IP和PORT的复用。 了解一下so_reuseport，感觉这个设置才是真正的端口的复用。不过，so_reuseaddr在不同的操作系统下，表现的行为还不太一样
+
+- [网络编程中的SO_REUSEADDR和SO_REUSEPORT参数详解](<https://zhuanlan.zhihu.com/p/35367402>) 这里面说`SO_REUSEADDR`主要用于复用`time_wait`装填的socket，而`SO_REUSEPORT`才是真正的复用port。
+
+
 
 2. nginx配置更新和服务热升级,详见：[nginx启动、重启、重新加载配置文件和平滑升级](<https://blog.csdn.net/gnail_oug/article/details/52754491>)
 
@@ -147,6 +172,8 @@
 
 1. 使用pidfile，每次进程重启更新一下pidfile，让进程管理者通过这个文件感知到main pid的变更。
 2. 更通用的做法：**起一个master来管理服务进程**，每次热重启master拉起一个新的进程，把旧的kill掉。这时master的pid没有变化，对于进程管理者来说进程处于正常的状态。[一个简洁的实现](https://link.juejin.im/?target=https%3A%2F%2Fgithub.com%2Fkuangchanglang%2Fgraceful)
+
+## 1.6 TODO：UDP服务的热更新呢？有什么不同么
 
 # 成熟的开源实现
 
