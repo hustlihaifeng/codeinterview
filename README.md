@@ -20,7 +20,7 @@
     - leetcode
       - [128 最长连续子集合的长度](algorithm/map/leetcode/128longest_consecutive_sequence/128longest_consecutive_sequence.md)
   - 数组
-    - [三数之和为0](algorithm\slice\threeSum\note.md)
+    - [三数之和为0](algorithm\slice\threeSum\note.md)  [两数之和为固定值](algorithm/map/leetcode/1twoSum/main.md)
     - [岛屿的最大面积](algorithm/slice/maxAreaOfIsland/try20200228/note.md)
     - [搜索旋转排序数组](algorithm/slice/search/try20200229/note.md)
     - [最长连续递增序列](algorithm/slice/findLengthOfLCIS/try20200229/note.md)
