@@ -199,5 +199,6 @@
   - [服务热更新](architecture/go_server_hot_upgrade.md)
   - [常用概念](architecture/annotions.md)
   - [https性能优化](architecture/https_speed_up.md)
+  - [分布式锁如何实现](architecture/distributed_lock.md)
 - nginx
   - [nginx负载均衡的常见方案](nginx/common_nginx_load_banlance_algorithm.md)
