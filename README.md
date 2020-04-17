@@ -156,6 +156,7 @@
   - [dockerfile](docker/dockerfile.md)
     - [dockerfile多阶段构建](docker/multi_state_dockerfile.md)
   - [docker搭建mysq_ redis_registry_python服务](docker/docker_setup_mysql_redis_and_so_on.md)
+  - [docker隔离机制](docker/docker_isolation.md)
 - os
   - k8s
     - [k8s笔记](os/k8s/k8s_note.md)
